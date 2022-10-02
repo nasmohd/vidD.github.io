@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <button onclick="downloadFile('https://www.youtube.com/watch?v=tPEE9ZwTmy0', 'Test123')"> Download Now </button>
+
+  <script type="text/javascript">
+    function downloadFile(url, fileName) {
+  fetch("https://circumvent-cors.herokuapp.com/" + url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
+    .then(res => res.blob())
+    .then(res => {
+      const aElement = document.createElement('a');
+      aElement.setAttribute('download', fileName);
+      const href = URL.createObjectURL(res);
+      aElement.href = href;
+      aElement.setAttribute('target', '_blank');
+      aElement.click();
+      URL.revokeObjectURL(href);
+    });
+};
+
+
+  </script>
+
+</body>
+</html>
