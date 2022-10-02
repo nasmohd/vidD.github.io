@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+
+  <?php 
+    header('Access-Control-Allow-Origin: *'); 
+
+    ?>
+
   <body>
     <div class="wrapper">
       <header>
@@ -15,7 +21,7 @@
         <p>Paste url of image, video, or pdf to download. This tool is made with vanilla javascript.</p>
       </header>
       <form action="#">
-        <input type="url" placeholder="Paste file url" required value="https://www.youtube.com/watch?v=tPEE9ZwTmy0">
+        <input type="url" placeholder="Paste file url" required>
         <button>Download File</button>
       </form>
     </div>

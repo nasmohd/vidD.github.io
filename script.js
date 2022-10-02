@@ -8,7 +8,7 @@ downloadBtn.addEventListener("click", e => {
 });
 
 function fetchFile(url) {
-    fetch(url).then(res => res.blob()).then(file => {
+    fetch(url, {mode: "no-cors"}).then(res => res.blob()).then(file => {
         let tempUrl = URL.createObjectURL(file);
         const aTag = document.createElement("a");
         aTag.href = tempUrl;
@@ -18,8 +18,11 @@ function fetchFile(url) {
         downloadBtn.innerText = "Download File";
         URL.revokeObjectURL(tempUrl);
         aTag.remove();
+
+        
     }).catch(() => {
         alert("Failed to download file!");
         downloadBtn.innerText = "Download File";
     });
 }
+
